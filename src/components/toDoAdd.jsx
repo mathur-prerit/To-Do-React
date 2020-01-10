@@ -1,11 +1,22 @@
 import React, { Component } from "react";
 
 class Todoadd extends Component {
-  state = {};
+  // state = {
+  //   title:''
+  // };
+
+  formSubmit=(e)=>{
+    e.preventDefault();
+    const inputItem=document.getElementById('input-item').value
+    this.props.addItem(inputItem)
+    e.target.reset();
+  }
+
   render() {
+
     return (
-      <form style={this.formStyle}>
-        <input style={this.formStyle} type="text" placeholder="Enter your task"/>
+      <form style={this.formStyle} onSubmit={this.formSubmit}>
+        <input style={this.formStyle} id={'input-item'} type="text" placeholder="Enter your task"/>
         <button type="submit">+</button>
       </form>
     );
@@ -14,6 +25,7 @@ class Todoadd extends Component {
   formStyle={
       textAlign:'center'
   }
+
 }
 
 export default Todoadd;
