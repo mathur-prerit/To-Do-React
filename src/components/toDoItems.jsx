@@ -21,17 +21,17 @@ class Todo extends Component {
     this.props.toggleStatus(status, position);
   };
 
-  deleteItem =(e)=>{
+  deleteItem = e => {
     // console.log(e.target.parentNode.id)
-    const position=e.target.parentNode.id
+    const position = e.target.parentNode.id;
     this.props.deleteIt(position);
-  }
+  };
 
   render() {
     return (
       <div>
         {this.props.todo.map(data => (
-          <div style={this.checklistStyle(data)} id={data.id} key={data.id}>
+          <div style = {this.checklistStyle(data)} id={data.id} key={data.id}>
             <input type="checkbox" onChange={this.markComplete} />
             {data.item}
             <button onClick={this.deleteItem}>-</button>

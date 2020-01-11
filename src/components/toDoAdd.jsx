@@ -8,8 +8,12 @@ class Todoadd extends Component {
   formSubmit=(e)=>{
     e.preventDefault();
     const inputItem=document.getElementById('input-item').value
+    if(inputItem!==""){
     this.props.addItem(inputItem)
     e.target.reset();
+    }else{
+      alert('Insert valid item')
+    }
   }
 
   render() {
